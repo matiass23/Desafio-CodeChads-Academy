@@ -50,7 +50,7 @@ public class CodeChadsAcademy {
         for (int i = 1; i < notas.length; i++) {
             if (notas[i] <= notas[i-1]) progresivo = false;
         }
-        if (progresivo) System.out.println("¡Progresivo! Stone Chad en crecimiento 📈");
+        if (progresivo) System.out.println("¡Nivel PROGRESIVO! Stone Chad en crecimiento 📈");
 
         int[] ordenadas = notas.clone();
         for (int i = 0; i < ordenadas.length-1; i++) {
