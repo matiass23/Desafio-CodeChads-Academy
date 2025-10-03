@@ -5,14 +5,13 @@ public class CodeChadsAcademy {
         
         int[] notas = new int[5];
 
-        // Primeras 3 notas (hardcodeadas)
+        
         notas[0] = 85;
         notas[1] = 75;
         notas[2] = 90;
 
-        // Nota 4 según regla
+        /* 1era parte*/
         notas[3] = (notas[1] < 60) ? 100 : notas[1];
-        // Nota 5 según regla
         notas[4] = (notas[0] + notas[2] > 150) ? 95 : 70;
 
         System.out.println("Las notas del alumno son: ");
@@ -22,6 +21,7 @@ public class CodeChadsAcademy {
 
         System.out.println("\n************************************************\n");
 
+        /* 2da parte*/
         int aprobadas = 0;
         for (int nota : notas) if (nota >= 60) aprobadas++;
 
