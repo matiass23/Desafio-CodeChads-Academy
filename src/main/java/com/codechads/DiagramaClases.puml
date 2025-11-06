@@ -1,0 +1,66 @@
+@startuml
+title Diagrama de Clases - CodeChads Academy (TPI)
+package model {
+    abstract class Experimento {
+        - String nombre
+        - int duracionHoras
+        - boolean exitoso
+        + Experimento(String, int, boolean)
+        + getNombre(): String
+        + getDuracionHoras(): int
+        + isExitoso(): boolean
+        + obtenerTipo(): String
+    }
+
+    class ExperimentoFisico {
+        - double temperatura
+        + ExperimentoFisico(String, int, boolean, double)
+        + getTemperatura(): double
+        + obtenerTipo(): String
+    }
+
+    class ExperimentoQuimico {
+        - String reactivoPrincipal
+        + ExperimentoQuimico(String, int, boolean, String)
+        + getReactivoPrincipal(): String
+        + obtenerTipo(): String
+    }
+
+    class Investigador {
+        - String nombre
+        - List<Experimento> experimentos
+        + agregarExperimento(Experimento): void
+        + getExperimentos(): List<Experimento>
+    }
+}
+
+package interfaces {
+    interface IReportable {
+        + generarReporte(): void
+    }
+
+    interface IExportable {
+        + exportarDatos(): void
+    }
+}
+
+package service {
+    class ExperimentoService {
+        - List<Experimento> experimentos
+        + contarExitosos(): long
+        + promedioDuracion(): double
+        + generarReporte(): void
+    }
+
+    class InvestigadorService {
+        - Investigador investigador
+        + exportarDatos(): void
+    }
+}
+
+Experimento <|-- ExperimentoFisico
+Experimento <|-- ExperimentoQuimico
+Investigador "1" *-- "*" Experimento
+ExperimentoService ..> IReportable
+InvestigadorService ..> IExportable
+@enduml
